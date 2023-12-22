@@ -131,19 +131,16 @@
     </script>
 
 <form action="" method="post" class="flex items-center space-x-2">
-                            <input type="hidden" name="action" value="editAddress">
-                            <input type="hidden" name="id" value="<?= $address['id'] ?>">
-                            <input type="text" name="city" value="<?= $address['city'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <input type="text" name="district" value="<?= $address['district'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <input type="text" name="street" value="<?= $address['street'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <input type="text" name="postal_code" value="<?= $address['postal_code'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <input type="text" name="email" value="<?= $address['email'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <input type="text" name="telephone" value="<?= $address['telephone'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <input type="text" name="date" value="<?= $address['date'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <!-- Repeat for other input fields -->
-                            <button type="submit" name="edit" class="bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600" onclick="return confirm('Are you sure you want to edit this address?')">Edit</button>
-                        </form>
-                        
+    <input type="hidden" name="action" value="editClient">
+    <input type="hidden" name="id" value="<?= $client['id'] ?>">
+    <input type="text" name="first_name" value="<?= $client['first_name'] ?>" class="p-1 border border-gray-300 rounded-md">
+    <input type="text" name="last_name" value="<?= $client['last_name'] ?>" class="p-1 border border-gray-300 rounded-md">
+    <input type="text" name="address" value="<?= $client['address'] ?>" class="p-1 border border-gray-300 rounded-md">
+    <input type="text" name="date" value="<?= $client['date'] ?>" class="p-1 border border-gray-300 rounded-md">
+    <!-- Repeat for other input fields -->
+    <button type="submit" name="edit" class="bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600" onclick="return confirm('Are you sure you want to edit this client?')">Edit</button>
+</form>
+
 
 
 
