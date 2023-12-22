@@ -1,7 +1,7 @@
 <?php
 
     interface IService {
-        function insert(Premium $premmium);
+        function insert(Premium $premium);
         function delete($id);
         function display();
         

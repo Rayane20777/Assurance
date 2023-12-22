@@ -39,7 +39,7 @@
             $claim_id = $premium->getClaim_id();
 
             
-            $sql = "UPDATE `premium` SET `amount`=:amount,`date`=:date,`article_id`=:article_id WHERE `id`=:id";
+            $sql = "UPDATE `premium` SET `amount`=:amount,`date`=:date,`claim_id`=:claim_id WHERE `id`=:id";
 
 
             $stmt = $pdo->prepare($sql);
