@@ -17,9 +17,9 @@
 <body>
 <div class="bg-gray-100">
 
-    <div class="h-screen flex overflow-hidden bg-gray-200">
+    <div class="h-screen flex  bg-gray-200">
         <!-- Sidebar -->
-        <div class="absolute bg-gray-800 text-white w-56 min-h-screen overflow-y-auto transition-transform transform -translate-x-full ease-in-out duration-300"
+        <div class=" bg-gray-800 text-white w-56 min-h-screen"
             id="sidebar">
             <!-- Your Sidebar Content -->
             <div class="p-4">
@@ -94,7 +94,10 @@
                             <input type="hidden" name="delete_id" value="<?= $insurer['id'] ?>">
                             <input type="hidden" name="action" value="deleteInsurer">
                             <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
+
                         </form>
+                        <button class="bg-yellow-500 text-white py-1 px-2 rounded-md hover:bg-yellow-600" onclick="toggleEditForm(<?= $insurer['id'] ?>)">Edit</button>
+
                     </td>
                 </tr>
             <?php endforeach; ?>
@@ -106,23 +109,15 @@
     </div>
 
     <script>
-        const sidebar = document.getElementById('sidebar');
-    const openSidebarButton = document.getElementById('open-sidebar');
-    
-    openSidebarButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        sidebar.classList.toggle('-translate-x-full');
-    });
 
-    // Close the sidebar when clicking outside of it
-    document.addEventListener('click', (e) => {
-        if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
-            sidebar.classList.add('-translate-x-full');
-        }
-    });
+
+    function toggleEditForm(insurerId) {
+        const editForm = document.getElementById(`editForm${insurerId}`);
+        editForm.style.display = (editForm.style.display === 'none' || editForm.style.display === '') ? 'flex' : 'none';
+    }
     </script>
 
-<form action="" method="post" class="flex items-center space-x-2">
+<form action="" method="post" class="flex items-center space-x-2 " id="editForm<?= $insurer['id'] ?>" style="display: none;">
                             <input type="hidden" name="action" value="editInsurer">
                             <input type="hidden" name="id" value="<?= $insurer['id'] ?>">
                             <input type="text" name="name" value="<?= $insurer['name'] ?>" class="p-1 border border-gray-300 rounded-md">
