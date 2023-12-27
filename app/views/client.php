@@ -52,28 +52,33 @@ require("../app/controllers/Client.php");
                     <h1 class="text-3xl font-bold mb-8">Welcome to our website</h1>
 
                     <form action="../app/controllers/Client.php" method="post" class="mb-8">
-                        <input type="hidden" name="action" value="addClient">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label for="first_name"
-                                    class="block text-sm font-medium text-gray-700">first_name</label>
-                                <input type="text" name="first_name" id="first_name" placeholder="Enter first_name"
-                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                                <label for="last_name" class="block text-sm font-medium text-gray-700">last_name</label>
-                                <input type="text" name="last_name" id="last_name" placeholder="Enter last_name"
-                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                                <label for="address" class="block text-sm font-medium text-gray-700">address</label>
-                                <input type="text" name="address" id="address" placeholder="Enter address"
-                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                                <label for="date" class="block text-sm font-medium text-gray-700">date</label>
-                                <input type="text" name="date" id="date" placeholder="Enter date"
-                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                            </div>
-                            <!-- Repeat similar structure for other input fields -->
-                        </div>
-                        <button type="submit" name="submit"
-                            class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
-                    </form>
+    <input type="hidden" name="action" value="addClient">
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <label for="first_name" class="block text-sm font-medium text-gray-700">First Name</label>
+            <input type="text" name="first_name" id="first_name" placeholder="Enter First Name"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name</label>
+            <input type="text" name="last_name" id="last_name" placeholder="Enter Last Name"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="address" class="block text-sm font-medium text-gray-700">Address</label>
+            <input type="text" name="address" id="address" placeholder="Enter Address"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="text" name="date" id="date" placeholder="Enter Date"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+    </div>
+    <button type="submit" name="submit"
+        class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+</form>
+
 
                     <br>
 

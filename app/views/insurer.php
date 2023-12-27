@@ -65,33 +65,34 @@
             </form>
 
             <!-- Insurers Table -->
-            <table id="example" class="display" style="width:100%" class="min-w-full bg-white border border-gray-300 rounded-md">
-                <thead>
-                <tr>
-                    <th class="py-2 px-4 border-b">ID</th>
-                    <th class="py-2 px-4 border-b">Name</th>
-                    <th class="py-2 px-4 border-b">Address</th>
-                    <th class="py-2 px-4 border-b">Actions</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($insurers as $insurer): ?>
-                    <tr>
-                        <td class="py-2 px-4 border-b"><?= $insurer['id'] ?></td>
-                        <td class="py-2 px-4 border-b"><?= $insurer['name'] ?></td>
-                        <td class="py-2 px-4 border-b"><?= $insurer['address'] ?></td>
-                        <td class="py-2 px-4 border-b">
-                            <form action="../app/controllers/Insurer.php" method="post" class="ml-2">
-                                <input type="hidden" name="delete_id" value="<?= $insurer['id'] ?>">
-                                <input type="hidden" name="action" value="deleteInsurer">
-                                <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
-                            </form>
-                            <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm('<?= $insurer['id'] ?>')">Edit</button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-                </table>
+            <table id="example" class="display" style="width:100%; border-collapse: collapse;" class="min-w-full bg-white border border-black rounded-md">
+    <thead style="background-color: #1a5276; color: #ffffff;">
+        <tr>
+            <th class="py-2 px-4 border-b border-black">ID</th>
+            <th class="py-2 px-4 border-b border-black">Name</th>
+            <th class="py-2 px-4 border-b border-black">Address</th>
+            <th class="py-2 px-4 border-b border-black">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($insurers as $insurer): ?>
+            <tr>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $insurer['id'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $insurer['name'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $insurer['address'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;">
+                    <form action="../app/controllers/Insurer.php" method="post" class="ml-2">
+                        <input type="hidden" name="delete_id" value="<?= $insurer['id'] ?>">
+                        <input type="hidden" name="action" value="deleteInsurer">
+                        <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
+                    </form>
+                    <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm('<?= $insurer['id'] ?>')">Edit</button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
 
             <!-- Edit Insurer Form -->
             <?php foreach ($insurers as $insurer): ?>

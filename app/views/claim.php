@@ -51,20 +51,28 @@
     <h1 class="text-3xl font-bold mb-8">Welcome to our website</h1>
 
     <form action="../app/controllers/Claim.php" method="post" class="mb-8">
-        <input type="hidden" name="action" value="addClaim">
-        <div class="grid grid-cols-2 gap-4">
-            <div>
-                <label for="description" class="block text-sm font-medium text-gray-700">description</label>
-                <input type="text" name="description" id="description" placeholder="Enter description" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                <label for="date" class="block text-sm font-medium text-gray-700">date</label>
-                <input type="text" name="date" id="date" placeholder="Enter date" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                <label for="article_id" class="block text-sm font-medium text-gray-700">article_id</label>
-                <input type="text" name="article_id" id="article_id" placeholder="Enter article_id" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-            </div>
-            <!-- Repeat similar structure for other input fields -->
+    <input type="hidden" name="action" value="addClaim">
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+            <input type="text" name="description" id="description" placeholder="Enter Description"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
         </div>
-        <button type="submit" name="submit" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
-    </form>
+        <div>
+            <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="text" name="date" id="date" placeholder="Enter Date"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="article_id" class="block text-sm font-medium text-gray-700">Article ID</label>
+            <input type="text" name="article_id" id="article_id" placeholder="Enter Article ID"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+    </div>
+    <button type="submit" name="submit"
+        class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+</form>
+
 
     <br>
 

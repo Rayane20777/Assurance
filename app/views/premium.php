@@ -52,24 +52,28 @@ require("../app/controllers/Premium.php");
                     <h1 class="text-3xl font-bold mb-8">Welcome to our website</h1>
 
                     <form action="../app/controllers/Premium.php" method="post" class="mb-8">
-                        <input type="hidden" name="action" value="addPremium">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label for="amount" class="block text-sm font-medium text-gray-700">amount</label>
-                                <input type="text" name="amount" id="amount" placeholder="Enter amount"
-                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                                <label for="date" class="block text-sm font-medium text-gray-700">date</label>
-                                <input type="text" name="date" id="date" placeholder="Enter date"
-                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                                <label for="claim_id" class="block text-sm font-medium text-gray-700">claim_id</label>
-                                <input type="text" name="claim_id" id="claim_id" placeholder="Enter claim_id"
-                                    class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                            </div>
-                            <!-- Repeat similar structure for other input fields -->
-                        </div>
-                        <button type="submit" name="submit"
-                            class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
-                    </form>
+    <input type="hidden" name="action" value="addPremium">
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <label for="amount" class="block text-sm font-medium text-gray-700">Amount</label>
+            <input type="text" name="amount" id="amount" placeholder="Enter Amount"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="text" name="date" id="date" placeholder="Enter Date"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="claim_id" class="block text-sm font-medium text-gray-700">Claim ID</label>
+            <input type="text" name="claim_id" id="claim_id" placeholder="Enter Claim ID"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+    </div>
+    <button type="submit" name="submit"
+        class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+</form>
+
 
                     <br>
 

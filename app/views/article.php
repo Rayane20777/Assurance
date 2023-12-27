@@ -51,24 +51,38 @@
     <h1 class="text-3xl font-bold mb-8">Welcome to our website</h1>
 
     <form action="../app/controllers/Article.php" method="post" class="mb-8">
-        <input type="hidden" name="action" value="addArticle">
-        <div class="grid grid-cols-2 gap-4">
-            <div>
-                <label for="title" class="block text-sm font-medium text-gray-700">title</label>
-                <input type="text" name="title" id="title" placeholder="Enter title" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                <label for="content" class="block text-sm font-medium text-gray-700">content</label>
-                <input type="text" name="content" id="content" placeholder="Enter content" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                <label for="date" class="block text-sm font-medium text-gray-700">date</label>
-                <input type="text" name="date" id="date" placeholder="Enter date" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                <label for="insurer_id" class="block text-sm font-medium text-gray-700">insurer_id</label>
-                <input type="text" name="insurer_id" id="insurer_id" placeholder="Enter insurer_id" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-                <label for="client_id" class="block text-sm font-medium text-gray-700">client_id</label>
-                <input type="text" name="client_id" id="client_id" placeholder="Enter client_id" class="mt-1 p-2 border border-gray-300 rounded-md w-full">
-            </div>
-            <!-- Repeat similar structure for other input fields -->
+    <input type="hidden" name="action" value="addArticle">
+    <div class="grid grid-cols-2 gap-4">
+        <div>
+            <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+            <input type="text" name="title" id="title" placeholder="Enter Title"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
         </div>
-        <button type="submit" name="submit" class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
-    </form>
+        <div>
+            <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+            <input type="text" name="content" id="content" placeholder="Enter Content"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="date" class="block text-sm font-medium text-gray-700">Date</label>
+            <input type="text" name="date" id="date" placeholder="Enter Date"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="insurer_id" class="block text-sm font-medium text-gray-700">Insurer ID</label>
+            <input type="text" name="insurer_id" id="insurer_id" placeholder="Enter Insurer ID"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+        <div>
+            <label for="client_id" class="block text-sm font-medium text-gray-700">Client ID</label>
+            <input type="text" name="client_id" id="client_id" placeholder="Enter Client ID"
+                class="mt-1 p-2 border border-gray-300 rounded-md w-full">
+        </div>
+    </div>
+    <button type="submit" name="submit"
+        class="mt-4 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Submit</button>
+</form>
+
 
     <br>
 
