@@ -86,7 +86,6 @@
                     <td class="py-2 px-4 border-b"><?=$claim['article_id']?></td>
 
 
-                    <!-- Repeat for other data fields -->
                     <td class="py-2 px-4 border-b">
 
                         <form action="../app/controllers/Claim.php" method="post" class="ml-2">
@@ -94,42 +93,38 @@
                             <input type="hidden" name="action" value="deleteClaim">
                             <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
                         </form>
+                        <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm('<?= $claim['id'] ?>')">Edit</button>
+
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    <?php foreach ($claims as $claim): ?>
+
+    <form action="../app/controllers/Claim.php" method="post" class="flex items-center space-x-2 mt-4"  id="editForm<?= $claim['id'] ?>" style="display: none;">
+        <input type="hidden" name="action" value="editClaim">
+        <input type="hidden" name="id" value="<?= $claim['id'] ?>">
+        <input type="text" name="description" value="<?= $claim['description'] ?>" class="p-1 border border-gray-300 rounded-md">
+        <input type="text" name="date" value="<?= $claim['date'] ?>" class="p-1 border border-gray-300 rounded-md">
+        <input type="text" name="article_id" value="<?= $claim['article_id'] ?>" class="p-1 border border-gray-300 rounded-md">
+        <button type="submit" name="edit" class="bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600" onclick="return confirm('Are you sure you want to edit this claim?')">Edit</button>
+    </form>
+    <?php endforeach; ?>
 </div>
 </div>
         </div>
     </div>
 
     <script>
-        const sidebar = document.getElementById('sidebar');
-    const openSidebarButton = document.getElementById('open-sidebar');
-    
-    openSidebarButton.addEventListener('click', (e) => {
-        e.stopPropagation();
-        sidebar.classList.toggle('-translate-x-full');
-    });
-
-    // Close the sidebar when clicking outside of it
-    document.addEventListener('click', (e) => {
-        if (!sidebar.contains(e.target) && !openSidebarButton.contains(e.target)) {
-            sidebar.classList.add('-translate-x-full');
-        }
-    });
+    function toggleEditForm(claimID) {
+        const editForm = document.getElementById(`editForm${claimID}`);
+        const currentDisplay = editForm.style.display;
+        editForm.style.display = currentDisplay === 'block' ? 'none' : 'block';
+    }
     </script>
 
-<form action="" method="post" class="flex items-center space-x-2">
-                            <input type="hidden" name="action" value="editClaim">
-                            <input type="hidden" name="id" value="<?= $claim['id'] ?>">
-                            <input type="text" name="description" value="<?= $claim['description'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <input type="text" name="date" value="<?= $claim['date'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <input type="text" name="article_id" value="<?= $claim['article_id'] ?>" class="p-1 border border-gray-300 rounded-md">
-                            <!-- Repeat for other input fields -->
-                            <button type="submit" name="edit" class="bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600" onclick="return confirm('Are you sure you want to edit this address?')">Edit</button>
-                        </form>
+
 
 
 
