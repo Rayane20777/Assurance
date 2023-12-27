@@ -77,51 +77,40 @@ require("../app/controllers/Premium.php");
 
                     <br>
 
-                    <table id="example" class="display" style="width:100%" class="min-w-full bg-white border border-gray-300 rounded-md">
-                        <thead>
-                            <tr>
-                                <th class="py-2 px-4 border-b">ID</th>
-                                <th class="py-2 px-4 border-b">amount</th>
-                                <th class="py-2 px-4 border-b">date</th>
-                                <th class="py-2 px-4 border-b">claim_id</th>
-                                <!-- Repeat for other headers -->
-                                <th class="py-2 px-4 border-b">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($premiums as $premium): ?>
-                                <tr>
-                                    <td class="py-2 px-4 border-b">
-                                        <?= $premium['id'] ?>
-                                    </td>
-                                    <td class="py-2 px-4 border-b">
-                                        <?= $premium['amount'] ?>
-                                    </td>
-                                    <td class="py-2 px-4 border-b">
-                                        <?= $premium['date'] ?>
-                                    </td>
-                                    <td class="py-2 px-4 border-b">
-                                        <?= $premium['claim_id'] ?>
-                                    </td>
+                    <table id="example" class="display" style="width:100%; border-collapse: collapse;" class="min-w-full bg-white border border-black rounded-md">
+    <thead style="background-color: #1a5276; color: #ffffff;">
+        <tr>
+            <th class="py-2 px-4 border-b border-black">ID</th>
+            <th class="py-2 px-4 border-b border-black">amount</th>
+            <th class="py-2 px-4 border-b border-black">date</th>
+            <th class="py-2 px-4 border-b border-black">claim_id</th>
+            <!-- Repeat for other headers -->
+            <th class="py-2 px-4 border-b border-black">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($premiums as $premium): ?>
+            <tr>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $premium['id'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $premium['amount'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $premium['date'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $premium['claim_id'] ?></td>
 
+                <!-- Repeat for other data fields -->
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;">
 
-                                    <!-- Repeat for other data fields -->
-                                    <td class="py-2 px-4 border-b">
+                    <form action="../app/controllers/Premium.php" method="post" class="ml-2">
+                        <input type="hidden" name="delete_id" value="<?= $premium['id'] ?>">
+                        <input type="hidden" name="action" value="deletePremium">
+                        <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
+                    </form>
+                    <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm('<?= $premium['id'] ?>')">Edit</button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
 
-                                        <form action="../app/controllers/Premium.php" method="post" class="ml-2">
-                                            <input type="hidden" name="delete_id" value="<?= $premium['id'] ?>">
-                                            <input type="hidden" name="action" value="deletePremium">
-                                            <button type="submit" name="delete"
-                                                class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600"
-                                                onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
-                                        </form>
-                                        <button class="bg-yellow-500 text-white py-1 px-2 rounded-md"
-                                            onclick="toggleEditForm('<?= $premium['id'] ?>')">Edit</button>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
                     <!-- Edit Premium Form -->
                     <?php foreach ($premiums as $premium): ?>
                         <form action="../app/controllers/Premium.php" method="post" class="flex items-center space-x-2 mt-4" id="editForm<?= $premium['id'] ?>" style="display: none;">

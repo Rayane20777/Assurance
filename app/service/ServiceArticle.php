@@ -10,6 +10,8 @@
 
             $pdo = $this->connect();
 
+            
+
             $id = $article->getId();
             $title = $article->getTitle();
             $content = $article->getContent();
@@ -86,8 +88,8 @@
             return $articles;
 
 
-        }
+        }  }
 
-    }
+    
 
 ?>

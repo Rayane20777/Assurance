@@ -3,6 +3,11 @@
 
     require(__DIR__ . "/../models/Claim.php");
     require(__DIR__ . "/../service/ServiceClaim.php");
+    require("../service/ServiceArticle.php");
+    
+    
+
+
 
     if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action']=='addClaim'){
 
@@ -52,6 +57,10 @@
 
 
     } else {
+
+
+
+        
         
         $service = new ServiceClaim();
         

@@ -82,39 +82,40 @@ require("../app/controllers/Client.php");
 
                     <br>
 
-                    <table id="example" class="display" style="width:100%" class="min-w-full bg-white border border-gray-300 rounded-md">
-                        <thead>
-                            <tr>
-                                <th class="py-2 px-4 border-b">ID</th>
-                                <th class="py-2 px-4 border-b">first_name</th>
-                                <th class="py-2 px-4 border-b">last_name</th>
-                                <th class="py-2 px-4 border-b">address</th>
-                                <th class="py-2 px-4 border-b">date</th>
-                                <!-- Repeat for other headers -->
-                                <th class="py-2 px-4 border-b">Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($clients as $client): ?>
-                                <tr>
-                                    <td class="py-2 px-4 border-b"><?= $client['id'] ?></td>
-                                    <td class="py-2 px-4 border-b"><?= $client['first_name'] ?></td>
-                                    <td class="py-2 px-4 border-b"><?= $client['last_name'] ?></td>
-                                    <td class="py-2 px-4 border-b"><?= $client['address'] ?></td>
-                                    <td class="py-2 px-4 border-b"><?= $client['date'] ?></td>
-                                    <td class="py-2 px-4 border-b">
+                    <table id="example" class="display" style="width:100%; border-collapse: collapse;" class="min-w-full bg-white border border-black rounded-md">
+    <thead style="background-color: #1a5276; color: #ffffff;">
+        <tr>
+            <th class="py-2 px-4 border-b border-black">ID</th>
+            <th class="py-2 px-4 border-b border-black">first_name</th>
+            <th class="py-2 px-4 border-b border-black">last_name</th>
+            <th class="py-2 px-4 border-b border-black">address</th>
+            <th class="py-2 px-4 border-b border-black">date</th>
+            <!-- Repeat for other headers -->
+            <th class="py-2 px-4 border-b border-black">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($clients as $client): ?>
+            <tr>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $client['id'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $client['first_name'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $client['last_name'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $client['address'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;"><?= $client['date'] ?></td>
+                <td class="py-1 px-4 border-b border-black" style="line-height: 0.4;">
 
-                                        <form action="../app/controllers/Client.php" method="post" class="ml-2">
-                                            <input type="hidden" name="delete_id" value="<?= $client['id'] ?>">
-                                            <input type="hidden" name="action" value="deleteClient">
-                                            <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
-                                        </form>
-                                        <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm('<?= $client['id'] ?>')">Edit</button>
-                                    </td>
-                                </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                    <form action="../app/controllers/Client.php" method="post" class="ml-2">
+                        <input type="hidden" name="delete_id" value="<?= $client['id'] ?>">
+                        <input type="hidden" name="action" value="deleteClient">
+                        <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
+                    </form>
+                    <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm('<?= $client['id'] ?>')">Edit</button>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
                     <?php foreach ($clients as $client): ?>
                         <form action="../app/controllers/Client.php" method="post" class="flex items-center space-x-2 mt-4" id="editForm<?= $client['id'] ?>" style="display: none;">
                             <input type="hidden" name="action" value="editClient">

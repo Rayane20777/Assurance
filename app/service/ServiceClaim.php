@@ -3,6 +3,7 @@
     // require( "../models/Database.php");
     require $_SERVER["DOCUMENT_ROOT"] . "/Assurance/app/models/Database.php";
     require("IServiceClaim.php");
+    
 
     class ServiceClaim extends Database implements IService {
         
