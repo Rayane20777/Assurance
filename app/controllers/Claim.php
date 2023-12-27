@@ -3,7 +3,6 @@
 
     require(__DIR__ . "/../models/Claim.php");
     require(__DIR__ . "/../service/ServiceClaim.php");
-    require("../service/ServiceArticle.php");
     
     
 
