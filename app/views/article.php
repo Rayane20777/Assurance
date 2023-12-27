@@ -93,7 +93,6 @@
                     <td class="py-2 px-4 border-b"><?=$article['insurer_id']?></td>
                     <td class="py-2 px-4 border-b"><?=$article['client_id']?></td>
 
-                    <!-- Repeat for other data fields -->
                     <td class="py-2 px-4 border-b">
 
                         <form action="../app/controllers/Article.php" method="post" class="ml-2">
@@ -101,28 +100,38 @@
                             <input type="hidden" name="action" value="deleteArticle">
                             <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
                         </form>
+                        <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm('<?= $article['id'] ?>')">Edit</button>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
+    <?php foreach ($articles as $article): ?>
+    <form action="../app/controllers/Article.php" method="post" class="flex items-center space-x-2 mt-4" id="editForm<?= $article['id'] ?>" style="display: none;">
+        <input type="hidden" name="action" value="editArticle">
+        <input type="hidden" name="id" value="<?= $article['id'] ?>">
+        <input type="text" name="title" value="<?= $article['title'] ?>" class="p-1 border border-gray-300 rounded-md">
+        <input type="text" name="content" value="<?= $article['content'] ?>" class="p-1 border border-gray-300 rounded-md">
+        <input type="text" name="date" value="<?= $article['date'] ?>" class="p-1 border border-gray-300 rounded-md">
+        <input type="text" name="insurer_id" value="<?= $article['insurer_id'] ?>" class="p-1 border border-gray-300 rounded-md">
+        <input type="text" name="client_id" value="<?= $article['client_id'] ?>" class="p-1 border border-gray-300 rounded-md">
+    <button type="submit" name="edit" class="bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600" onclick="return confirm('Are you sure you want to edit this address?')">Edit</button>
+    <?php endforeach; ?>
+</form>
 </div>
 </div>
         </div>
     </div>
 
+    <script>
+    function toggleEditForm(articleID) {
+        const editForm = document.getElementById(`editForm${articleID}`);
+        const currentDisplay = editForm.style.display;
+        editForm.style.display = currentDisplay === 'block' ? 'none' : 'block';
+    }
 
-<form action="" method="post" class="flex items-center space-x-2">
-    <input type="hidden" name="action" value="editArticle">
-    <input type="hidden" name="id" value="<?= $article['id'] ?>">
-    <input type="text" name="title" value="<?= $article['title'] ?>" class="p-1 border border-gray-300 rounded-md">
-    <input type="text" name="content" value="<?= $article['content'] ?>" class="p-1 border border-gray-300 rounded-md">
-    <input type="text" name="date" value="<?= $article['date'] ?>" class="p-1 border border-gray-300 rounded-md">
-    <input type="text" name="insurer_id" value="<?= $article['insurer_id'] ?>" class="p-1 border border-gray-300 rounded-md">
-    <input type="text" name="client_id" value="<?= $article['client_id'] ?>" class="p-1 border border-gray-300 rounded-md">
-    <!-- Repeat for other input fields -->
-    <button type="submit" name="edit" class="bg-green-500 text-white py-1 px-2 rounded-md hover:bg-green-600" onclick="return confirm('Are you sure you want to edit this address?')">Edit</button>
-</form>
+</script>
+
 
 
 
