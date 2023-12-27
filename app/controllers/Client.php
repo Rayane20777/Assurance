@@ -37,7 +37,7 @@
         
         $service->edit($client);
 
-        header("Location: ../public/client.php");
+        header("Location: ../../public/client.php");
 
 
     }else if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action']=='deleteClient'){

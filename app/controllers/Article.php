@@ -41,7 +41,7 @@
         
         $service->edit($article);
 
-        header("Location: ../public/article.php");
+        header("Location: ../../public/article.php");
 
 
     }else if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action']=='deleteArticle'){

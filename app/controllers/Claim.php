@@ -37,7 +37,7 @@
         
         $service->edit($claim);
 
-        header("Location: ../public/claim.php");
+        header("Location: ../../public/claim.php");
 
 
     }else if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action']=='deleteClaim'){

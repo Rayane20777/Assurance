@@ -37,7 +37,7 @@
         
         $service->edit($premium);
 
-        header("Location: ../public/premium.php");
+        header("Location: ../../public/premium.php");
 
 
     }else if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action']=='deletePremium'){
