@@ -14,6 +14,8 @@ require("../app/controllers/Client.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.tailwindcss.min.css">
+
 </head>
 
 <body>
@@ -75,7 +77,7 @@ require("../app/controllers/Client.php");
 
                     <br>
 
-                    <table class="min-w-full bg-white border border-gray-300 rounded-md">
+                    <table id="example" class="display" style="width:100%" class="min-w-full bg-white border border-gray-300 rounded-md">
                         <thead>
                             <tr>
                                 <th class="py-2 px-4 border-b">ID</th>
@@ -131,18 +133,12 @@ require("../app/controllers/Client.php");
             editForm.style.display = currentDisplay === 'block' ? 'none' : 'block';
         }
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
+    <script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" ></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.tailwindcss.min.js" ></script>
+<script>
+    new DataTable('#example');
+</script>
 
 
     </div>
