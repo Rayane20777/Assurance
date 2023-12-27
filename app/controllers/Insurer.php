@@ -35,7 +35,7 @@
         
         $service->edit($insurer);
 
-        header("Location: ../public/insurer.php");
+        header("Location: ../../public/insurer.php");
 
 
     }else if ($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['action']=='deleteInsurer'){

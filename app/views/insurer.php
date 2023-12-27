@@ -13,6 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Insurance Management System</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.tailwindcss.min.css">
 </head>
 <body class="bg-gray-100 font-sans">
 
@@ -63,7 +65,7 @@
             </form>
 
             <!-- Insurers Table -->
-            <table class="min-w-full bg-white border border-gray-300 rounded-md">
+            <table id="example" class="display" style="width:100%" class="min-w-full bg-white border border-gray-300 rounded-md">
                 <thead>
                 <tr>
                     <th class="py-2 px-4 border-b">ID</th>
@@ -84,12 +86,12 @@
                                 <input type="hidden" name="action" value="deleteInsurer">
                                 <button type="submit" name="delete" class="bg-red-500 text-white py-1 px-2 rounded-md hover:bg-red-600" onclick="return confirm('Are you sure you want to delete this address?')">Delete</button>
                             </form>
-                            <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm(<?= $insurer['id'] ?>)">Edit</button>
+                            <button class="bg-yellow-500 text-white py-1 px-2 rounded-md" onclick="toggleEditForm('<?= $insurer['id'] ?>')">Edit</button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
-            </table>
+                </table>
 
             <!-- Edit Insurer Form -->
             <?php foreach ($insurers as $insurer): ?>
@@ -111,6 +113,14 @@
         const currentDisplay = editForm.style.display;
         editForm.style.display = currentDisplay === 'block' ? 'none' : 'block';
     }
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
+<script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js" ></script>
+<script src="https://cdn.datatables.net/1.13.7/js/dataTables.tailwindcss.min.js" ></script>
+<script>
+    new DataTable('#example');
 </script>
 
 </body>
